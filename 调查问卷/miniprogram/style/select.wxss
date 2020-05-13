@@ -1,0 +1,123 @@
+.radio_box{
+  background-color: white;
+  width: 100%;
+  height: 350rpx;
+}
+.radio_question{
+  margin-left:5%;
+  margin-top:20rpx
+}
+.radio_input{
+  background-color:#f1f1f1;
+  margin:0 auto;
+  width:90%;
+  height:200rpx;
+  margin-top:20rpx;
+  border-radius: 15rpx;
+  padding:15rpx;
+  font-size:11pt;
+}
+.input_delete{
+  width:50rpx;
+  height:50rpx;
+}
+image{
+  width:44rpx;
+  height:44rpx;
+  vertical-align:middle;
+}
+.input_box{
+  background-color: white;
+  width: 100%;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
+  padding-left:5%;
+  padding-right:5%;
+  margin-top:50rpx;
+}
+.input_answer{
+  display:flex;
+  flex-direction:row;
+  margin-top:30rpx;
+}
+.input_delete{
+  flex:1;
+  text-align:left;
+  align-self:center;
+
+}
+.input_add{
+  text-align:center;
+}
+.input_add image{
+  width:60rpx;
+  height:60rpx;
+  margin-top:50rpx;
+}
+.radio_tap{
+  flex:1;
+  text-align:right;
+  align-self:center;
+  margin-right:50rpx;
+}
+.input_text{
+  width:70%;
+  background-color: #f1f1f1;
+  height:60rpx;
+  border-radius:15rpx;
+  padding-left:15rpx;
+  font-size:11pt;
+}
+.input_text_nd{
+  width:70%;
+  background-color: #f1f1f1;
+  height:60rpx;
+  border-radius:15rpx;
+  padding-left:15rpx;
+  font-size:11pt;
+  margin-right: 100rpx;
+}
+.padding{
+  margin-left:10rpx;
+  font-size:11pt;
+}
+.yes{
+  width: 150rpx;
+  color: white;
+  vertical-align: middle;
+  padding: 10rpx;
+  border-radius: 15rpx;
+  margin: 0 auto;
+  margin-top: 15rpx;
+}
+.essay_textarea{
+   background-color:#f1f1f1;
+   width: 100%;
+   height:200rpx;
+   margin-top:20rpx;
+   border-radius: 15rpx;
+   padding:15rpx;
+   font-size:11pt;
+}
+.essay_answer{
+  display: flex;
+  flex-wrap: nowrap;
+  width:80%;
+  margin-left: 50rpx;
+}
+.essay_textarea{
+  background-color:#f1f1f1;
+  width:90%;
+  height:200rpx;
+  border-radius: 15rpx;
+  padding:15rpx;
+  font-size:11pt;
+}
+.gap_input{
+  background-color:#f1f1f1;
+  width:90%;
+  height: 50rpx;
+  padding-left:15rpx;
+  border-radius: 5rpx;
+  font-size:11pt;
+}

@@ -1,0 +1,135 @@
+.question_icon{
+ width: 70rpx;
+ height: 70rpx;
+ border-radius: 35rpx;
+ background: linear-gradient(45deg, #0081ff, #1cbbb4);
+}
+.box{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.question_box{
+  margin-top: 30rpx; 
+}
+.question_font{
+  font-family: "KaiTi";
+  font-size: 15pt;
+  margin: 8px;
+}
+.question_line{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+
+}
+.input_line{
+  margin-top: 50rpx;
+  margin-left: 10px;
+}
+.textarea_border{
+  border: 1px solid black;
+  width: 550rpx;
+  height: 220rpx;
+}
+.question_next{
+  width: 200rpx;
+  height: 60rpx;
+  text-align: center;
+  margin: 20px auto;
+  padding-top: 15rpx;
+  border-radius: 20rpx;
+}
+
+.btnBg_blue{
+  background: linear-gradient(45deg, #0081ff, #1cbbb4);
+  color: white;
+}
+.btnBg_red{
+  background: linear-gradient(45deg, #f43f3b, #ec008c);
+  color: white;
+}
+.border{
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+ }
+.border_bottom{
+ border-bottom: 1px solid grey;
+
+}
+.hide{
+  display: none;
+}
+.border_dashed{
+  border:dashed;
+  border-color: gainsboro;
+}
+
+.text_center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.question_isname{
+  margin-bottom: 20rpx;
+  border:1px dashed gainsboro;
+  padding-bottom: 10rpx;
+}
+.question_name{
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+.window_box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0, 0.4);
+  z-index: 1;
+  
+}
+.window{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 550rpx;
+  height: 380rpx;
+  margin-left: -275rpx;
+  margin-top: -220rpx;
+  background-color: white;
+  border-radius: 6rpx;
+  border: 2rpx solid #0a99c9;
+  text-align: center;
+}
+.select{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  margin-top: 35rpx;
+  margin-bottom: 35rpx;
+}
+.title{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #232323;
+  padding: 25rpx;
+  border-bottom: 1px solid grey;
+}
+.select_title{
+  font-size: 10pt;
+  color: #0081ff;
+  margin-top: 7rpx;
+
+}
+.close{
+  font-size: 30rpx;
+  color: #232323;
+  border-top: 1rpx solid grey;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}

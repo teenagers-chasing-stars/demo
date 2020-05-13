@@ -1,0 +1,219 @@
+<import src="../../components/template.wxml" />
+<view class='schedules'>
+	<block wx:for="{{scheduleList}}" wx:for-item="item" wx:key='index'>
+		<view class="link {{index<=isHidden ?'textactivate':'textunactivate'}}" wx:if="{{index!=0}}">---
+		</view>
+		<view class='schedule'>
+			<view class='schedule-icon'>
+				<text class="icon {{index<=isHidden ?'bgactivate':'bgunactivate'}}">{{index+1}}
+				</text>
+			</view>
+			<view class="schedule-title {{index<=isHidden ?'textactivate':'textunactivate'}}">{{item.title}}
+			</view>
+		</view>
+	</block>
+</view>
+<!-- 活动内容 -->
+<view class="box">
+	<view class="tab_box {{isHidden == 0 ?' ':'hide'}}">
+		<view class="question_box">
+			<view class="question_line">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font">问卷名称</view>
+			</view>
+			<view class="input_line">
+				<input maxlength="50" data-attr="questionName" placeholder="填写问卷名称" value="{{setting.questionName}}" bindinput="bindKeyInput" maxlength="20" />
+			</view>
+		</view>
+		<view class="question_box">
+			<view class="question_line">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font">问卷简介</view>
+			</view>
+			<view class="input_line">
+				<textarea class="textarea_border" data-attr="questionBrief" value="{{setting.questionBrief}}" bindinput="bindKeyInput" placeholder="请简介一下问卷，不得超过50字" maxlength="50"></textarea>
+			</view>
+		</view>
+		<view class="question_box">
+			<view class="question_line">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font">是否公开</view>
+			</view>
+			<view class="input_line">
+				<radio-group bindchange="radiochange">
+					<radio value="1" checked>是</radio>
+					<radio class="last_no" value="0">否</radio>
+				</radio-group>
+			</view>
+			<view class="question_line">
+				<view class="question_next btnBg_blue" bindtap="nextTap">下一步</view>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 问题设置 -->
+<view class="box">
+	<view class="tab_box {{isHidden == 1 ?' ':'hide'}}">
+		<view class="question_box border">
+			<view class="question_line margin">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font">是否匿名</view>
+				<view class="switch_right">
+					<switch bindchange="changeSwitch" color="#0081ff" data-attr="isName"></switch>
+				</view>
+			</view>
+			<view class="question_isname" hidden="{{setting.isName==1}}">
+				<view class="question_name">
+					主办方姓名
+				</view>
+				<view class="input_line">
+					<input data-attr="userName" value="{{setting.userName}}" bindinput="bindKeyInput" placeholder="请输入主办人姓名" maxlength="5"></input>
+				</view>
+			</view>
+		</view>
+		<view class="question_box border_bottom">
+			<view class="question_line margin">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font" wx:if="{{setting.isPhone==0}}">公开联系方式</view>
+				<view class="question_font" wx:if="{{setting.isPhone==1}}">不公开联系方式</view>
+				<view class="switch_right">
+					<switch bindchange="changeSwitch" color="#0081ff" data-attr="isPhone"></switch>
+				</view>
+			</view>
+			<view class="question_isname" hidden="{{setting.isPhone==1}}">
+				<view class="question_name">
+					主办方联系方式
+				</view>
+				<view class="input_line">
+					<input data-attr="userPhone" value="{{setting.userPhone}}" bindinput="bindKeyInput" placeholder="请输入主办人联系方式" maxlength="11"></input>
+				</view>
+			</view>
+		</view>
+		<view class="question_box border_bottom">
+			<view class="question_line margin">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font">问卷类型</view>
+				<view class="picker_right ">
+					<picker mode="selector" value="{{typeIndex}}" bindchange="changeDataType" range="{{dataType}}">
+						<input disabled='false' placeholder='(请选择..) >' name="dataType" value="{{dataType[typeIndex]}}"></input>
+					</picker>
+				</view>
+			</view>
+		</view>
+		<view class="question_box border_bottom">
+			<view class="question_line margin">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font" wx:if="{{setting.isTalk==0}}">关闭问卷留言</view>
+				<view class="question_font" wx:if="{{setting.isTalk==1}}">开启问卷留言</view>
+				<view class="question_switch switch_right">
+					<switch bindchange="changeSwitch" color="#0081ff" data-attr="isTalk"></switch>
+				</view>
+			</view>
+		</view>
+		<view class="question_box border_bottom">
+			<view class="question_line margin">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="question_font">问卷期限</view>
+				<view class="picker_right ">
+					<picker mode="selector" value="{{timeIndex}}" bindchange="changeDateTime" range="{{dateTime}}">
+						<input disabled='false' placeholder='(请选择..) >' name="dateTime" value="{{dateTime[timeIndex]}}"></input>
+					</picker>
+				</view>
+			</view>
+		</view>
+		<view class="question_line margin">
+			<view class="question_next btnBg_blue" bindtap="lastTap">上一步</view>
+			<view class="question_next btnBg_blue" bindtap="nextTap">下一步</view>
+		</view>
+	</view>
+</view>
+<!-- 题目项 -->
+<view class="box">
+	<view class="tab_box {{isHidden == 2 ?' ':'hide'}}">
+		<block class="question_box" wx:for="{{wentis}}" wx:for-index="wentiIndex" wx:for-item="item" wx:key="index" wx:if="{{wentis.length!=0}}">
+			<view class="compile {{ thisWenTi== wentiIndex ? 'bright' : ''}}">
+				<view class="wenti">
+					<template is="{{item.qType}}" data="{{...item,wentiIndex,disabled}}"></template>
+					<view class="eachTopic" bindtap="topicTap" data-id="{{wentiIndex}}"></view>
+				</view>
+				<view class="temp" wx:if="{{thisWenTi == wentiIndex}}">
+					<view class="temp_up" bindtap="bindUpdateTap" data-id="{{wentiIndex}}">
+						<image class="temp_img" src="../../images/compile.png"></image>
+						<view class="temp_name">编辑</view>
+					</view>
+					<view class="temp_up" bindtap="bindUpTap" data-id="{{wentiIndex}}">
+						<image class="temp_img" src="../../images/up.png"></image>
+						<view class="temp_name">上移</view>
+					</view>
+					<view class="temp_up" bindtap="bindDownTap" data-id="{{wentiIndex}}">
+						<image class="temp_img" src="../../images/down.png"></image>
+						<view class="temp_name">下移</view>
+					</view>
+					<view class="temp_up" bindtap="bindDeleteTap" data-id="{{wentiIndex}}">
+						<image class="temp_img" src="../../images/delete.png"></image>
+						<view class="temp_name">删除</view>
+					</view>
+				</view>
+			</view>
+		</block>
+		<view class="question_box border_dashed text_center" bindtap="addProblems">
+			<view class="question_font"><text>+</text>添加题目</view>
+		</view>
+		<view class="question_line">
+			<view class="question_next btnBg_blue" bindtap="lastTap">上一步</view>
+			<view class="question_next btnBg_blue" bindtap="lookTap">预览</view>
+		</view>
+	</view>
+</view>
+<!-- 添加题目类型窗口 -->
+<view class="window_box" hidden="{{window==1}}">
+	<view class="window">
+		<view class="title">
+			选择题目类型
+		</view>
+		<view class="select">
+			<view class="select_line" bindtap="radio">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="select_title">单选</view>
+			</view>
+			<view class="select_line" bindtap="checkbox">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="select_title">多选</view>
+			</view>
+			<view class="select_line" bindtap="gap">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="select_title">填空</view>
+			</view>
+			<view class="select_line" bindtap="essay">
+				<view class="question_icon">
+					<!-- <image  src="../../images/logo.jpg" /> -->
+				</view>
+				<view class="select_title">简答</view>
+			</view>
+		</view>
+		<view class="close">
+			<button class="buttom_style  btnBg_blue" size="mini" bindtap="close">关闭</button></view>
+	</view>
+</view>
