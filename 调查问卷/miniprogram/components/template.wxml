@@ -1,0 +1,68 @@
+<!-- 单选题模板 -->
+<template name="radio">
+<view class="temp_box">
+	<radio-group  data-qid="{{id}}" data-index="{{index}}">
+    <view class="raw">
+		<text class="temp_index">{{wentiIndex+1}}.</text>
+		<text style="color:red" decode='true'>*&nbsp;</text>
+    <text >{{topic}}</text>
+		<text  decode='true' style='color:#999'>&nbsp;[单选题]</text>
+    </view>
+		<block wx:for="{{choices}}" wx:for-index="key">
+			<view class="temp_border temp_magin">
+				<radio value="{{key}}" checked="{{item.flag}}"></radio>
+				<text>{{choices[key].text}}</text>
+			</view>
+		</block>
+	</radio-group>
+</view>
+</template>
+<!-- 多选题目模板 -->
+<template name="checkbox">
+<view class="temp_box">
+	<checkbox-group data-qid="{{id}}" data-index="{{index}}">
+    <view class="raw">
+		<text class="temp_index">{{wentiIndex+1}}.</text>
+		<text style="color:red" decode='true'>*&nbsp;</text>
+    <text >{{topic}}</text>
+		<text  decode='true' style='color:#999'>&nbsp;[多选题]</text>
+    </view>
+		<block wx:for="{{choices}}" wx:for-index="key">
+			<view class="temp_border temp_magin">
+				<checkbox value="{{key}}" checked="{{item.flag}}"></checkbox>
+				<text>{{choices[key].text}}</text>
+			</view>
+		</block>
+	</checkbox-group>
+</view>
+</template>
+<!-- 填空题模板 -->
+<template name="gap">
+<view class="temp_box">
+    <view class="raw">
+		<text class="temp_index">{{wentiIndex+1}}.</text>
+		<text style="color:red" decode='true'>*&nbsp;</text>
+    <text >{{topic}}</text>
+		<text  decode='true' style='color:#999'>&nbsp;[填空题]</text>
+    </view>
+		<block wx:for="{{choices}}" wx:for-index="key">
+			<view class="temp_magin">
+				<input disabled="flase" class="gap_input gap_z" placeholder="输入第{{key+1}}空内容"  value="" bindinput=""  maxlength="15"/> 
+			</view>
+		</block>
+</view>
+</template>
+<!-- 简答题模板 -->
+<template name="essay">
+<view class="temp_box">
+    <view class="raw">
+		<text class="temp_index">{{wentiIndex+1}}.</text>
+		<text style="color:red" decode='true'>*&nbsp;</text>
+    <text >{{topic}}</text>
+		<text  decode='true' style='color:#999'>&nbsp;[简答题]</text>
+    </view>
+			<view class="temp_magin ">
+				<textarea disabled="flase" class="essay_textarea gap_z"  placeholder="输入简述答案（不大于100字）"  value="" bindinput="" maxlength="100"/> 
+			</view>
+</view>
+</template>
