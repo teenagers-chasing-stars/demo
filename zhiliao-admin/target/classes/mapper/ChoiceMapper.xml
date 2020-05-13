@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.ChoiceDao">
+
+    <insert id="setQuestionnaireRadio" parameterType="java.util.List">
+        insert into questionnaire_radio
+        (pId, rText, rFlag)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.pId},
+            #{item.text},
+            #{item.flag}
+            )
+        </foreach>
+    </insert>
+    <insert id="setQuestionnaireCheckbox" parameterType="java.util.List">
+        insert into questionnaire_checkbox
+        (pId, cText, cFlag)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.pId},
+            #{item.text},
+            #{item.flag}
+            )
+        </foreach>
+    </insert>
+    <insert id="setQuestionnaireGap" parameterType="java.util.List">
+        insert into questionnaire_gap
+        (pId, gText)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.pId},
+            #{item.text}
+            )
+        </foreach>
+    </insert>
+    <insert id="setQuestionnaireEssay" parameterType="java.util.List">
+        insert into questionnaire_essay
+        (pId, eText)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.pId},
+            #{item.text}
+            )
+        </foreach>
+    </insert>
+</mapper>    

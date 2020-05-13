@@ -1,0 +1,29 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    username: root
+    password: dong07232913.
+    url: jdbc:mysql://localhost:3306/questionnaire?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  data:
+#    elasticsearch:
+#      repositories:
+#        enabled: true
+#      cluster-nodes: localhost:9300
+#      cluster-name: my-application
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.example.demo.entity
+  # 加载全局的配置文件
+  configLocation: classpath:mybatis/mybatis-config.xml
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserDao">
+    <!--<resultMap id="userInfoMap" type="com.example.demo.entity.UserInfo">-->
+    <!--<id column="openid" property="openid"></id>-->
+    <!--<result column="questionName" property="questionName"></result>-->
+    <!--<result column="questionBrief" property="questionBrief"></result>-->
+    <!--<result column="qName" property="userName"></result>-->
+    <!--<result column="qPhone" property="userPhone"></result>-->
+    <!--<result column="isPublic" property="isPublic"></result>-->
+    <!--<result column="isTalk" property="isTalk"></result>-->
+    <!--<result column="dataTypeVaule" property="dataTypeVaule"></result>-->
+    <!--<result column="dateTimeVaule" property="dateTimeVaule"></result>-->
+    <!--<collection property="questionName" javaType="list"  ofType="com.example.entity.Questionnaire" autoMapping="true">-->
+    <!--<result column="pTopic" property="topic"></result>-->
+    <!--<result column="pType" property="qType"></result>-->
+    <!--</collection>-->
+    <!--</resultMap>-->
+    <!--<resultMap id="userInfoResultMap " type="com.example.entity.Questionnaire" extends="userInfoMap">-->
+    <!--<collection property="choices" javaType="list" ofType="com.example.entity.Choice" autoMapping="true">-->
+    <!--<result column="text" property="text"></result>-->
+    <!--<result column="flag" property="flag"></result>-->
+    <!--</collection>-->
+    <!--</resultMap>-->
+    <insert id="setUserInfo" parameterType="com.example.demo.entity.UserInfo" useGeneratedKeys="true" keyProperty="qId">
+      insert into questionnaire_info
+      (openid,questionName,questionBrief,
+      qName,qPhone,isPublic,isTalk,
+      dataTypeValue,dateTimeValue
+      )
+      values
+      (#{openid},#{questionName},#{questionBrief},
+       #{userName},#{userPhone},#{isPublic},#{isTalk},
+       #{dataTypeValue},#{dateTimeValue}
+       )
+    </insert>
+    <insert id="setUserQuestionnaire" parameterType="com.example.demo.entity.Questionnaire" useGeneratedKeys="true" keyProperty="pId">
+     insert into questionnaire_type
+        (qId,pTopic, pType)
+        values
+        (#{qId}, #{topic}, #{qType})
+    </insert>
+
+</mapper>    
